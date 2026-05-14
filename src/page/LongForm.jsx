@@ -50,15 +50,11 @@ const LongForm = () => {
           <div id="description" className="flex gap-3">
             <div className="flex-shrink-0">{item.youtuberLogo}</div>
             <div className="flex flex-col flex-1 overflow-hidden">
-              <h3
-                className={`text-sm font-bold line-clamp-2 leading-snug mb-1 ${theme === 'light' ? 'text-black' : 'text-white'}`}
-              >
+              <h3 className="text-sm font-bold line-clamp-2 mb-1">
                 {item.name}
               </h3>
-              <div className="text-[12px] text-gray-500 dark:text-gray-400">
-                <p className="hover:text-black dark:hover:text-white transition-colors">
-                  {item.youtuberName}
-                </p>
+              <div className="text-[12px] text-gray-500">
+                <p>{item.youtuberName}</p>
                 <p>
                   조회수 {item.subInfo.view}만회 • {item.subInfo.date}개월 전
                 </p>

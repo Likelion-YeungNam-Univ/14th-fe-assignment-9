@@ -6,7 +6,7 @@ const videoItem = {
     <img
       alt=""
       src="https://i.ytimg.com/vi/Bc3Ra5pA09Q/oardefault.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&amp;rs=AOn4CLBbHExzVOs0WFiet8mQY61aY-q0HQ&amp;usqp=CCk"
-      className="w-full aspect-[9/16] object-cover rounded-[12px]"
+      className="w-full object-cover rounded-[12px]"
     ></img>
   ),
   name: '전주만 나왔을 뿐인데 모두가 기절한 레전드 무대!',
@@ -21,7 +21,7 @@ const ShortForm = () => {
   }));
 
   return (
-    <div className="mt-8 border-t border-gray-200 dark:border-gray-800 pt-6">
+    <div className="mt-8 dark:border-gray-800 pt-6">
       <div className="flex items-center gap-2 mb-4 px-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
