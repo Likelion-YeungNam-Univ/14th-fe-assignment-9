@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ThemeContext from '../context/ThemeContext';
 
 const guideRendererItems = [
   {
@@ -60,14 +61,25 @@ const guideRendererItems = [
 ];
 
 const GuideRenderer = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <aside id="mini-guide-renderer" className="w-[50px] h-[280px] mx-1">
+    <aside
+      id="mini-guide-renderer"
+      className="w-[72px] h-full flex flex-col items-center"
+    >
       {guideRendererItems.map((item) => (
         <button
           key={item.id}
-          className="flex flex-col justify-center items-center w-full h-[70px]"
+          className={`flex flex-col justify-center items-center w-full h-[74px] rounded-lg transition-colors ${
+            theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-800'
+          }`}
         >
-          {item.icon}
+          <div
+            className={`mb-1 ${theme === 'light' ? 'fill-black' : 'fill-white'}`}
+          >
+            {item.icon}
+          </div>
           <p className="text-[10px]">{item.text}</p>
         </button>
       ))}

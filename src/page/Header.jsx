@@ -1,25 +1,32 @@
-import React, { useRef } from 'react';
-const Header = () => {
-  const inputRef = useRef(null);
+import React, { useContext } from 'react';
+import ThemeContext from '../context/ThemeContext';
 
-  const handleKeyboardClick = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
+const Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <header className="flex justify-between items-center w-full px-2 my-2">
-      <div id="start" className="flex h-12">
+    <header
+      className={`flex justify-between items-center w-full px-2 py-2 transition-colors ${
+        theme === 'light' ? 'bg-white text-black' : 'bg-gray-900 text-white'
+      }`}
+    >
+      <div id="start" className="flex h-12 items-center">
         <button
           id="guide-button"
-          className="flex justify-center items-center w-10 h-10 active:bg-gray-100 rounded-full"
+          className={`p-2 mr-2 rounded-full ${theme === 'light' ? 'bg-white hover:bg-gray-200' : 'bg-gray-900 hover:bg-gray-800'}`}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 fill-current"
+            viewBox="0 0 24 24"
+          >
             <path d="M20 5H4a1 1 0 000 2h16a1 1 0 100-2Zm0 6H4a1 1 0 000 2h16a1 1 0 000-2Zm0 6H4a1 1 0 000 2h16a1 1 0 000-2Z"></path>
           </svg>
         </button>
-        <button id="logo" className="flex pl-4 active:bg-gray-100">
+        <button
+          id="logo"
+          className={`flex pl-4 items-center rounded-lg ${theme === 'light' ? 'bg-white hover:bg-gray-100' : 'bg-gray-900 hover:bg-gray-800'}`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 120 20"
@@ -32,7 +39,7 @@ const Header = () => {
               ></path>
               <path d="M19 10L11.5 5.75V14.25L19 10Z" fill="white"></path>
             </g>
-            <g id="youtube-paths_yt10">
+            <g className={theme === 'light' ? 'fill-black' : 'fill-white'}>
               <path d="M37.1384 18.8999V13.4399L40.6084 2.09994H38.0184L36.6984 7.24994C36.3984 8.42994 36.1284 9.65994 35.9284 10.7999H35.7684C35.6584 9.79994 35.3384 8.48994 35.0184 7.22994L33.7384 2.09994H31.1484L34.5684 13.4399V18.8999H37.1384Z"></path>
               <path d="M44.1003 6.29994C41.0703 6.29994 40.0303 8.04994 40.0303 11.8199V13.6099C40.0303 16.9899 40.6803 19.1099 44.0403 19.1099C47.3503 19.1099 48.0603 17.0899 48.0603 13.6099V11.8199C48.0603 8.44994 47.3803 6.29994 44.1003 6.29994ZM45.3903 14.7199C45.3903 16.3599 45.1003 17.3899 44.0503 17.3899C43.0203 17.3899 42.7303 16.3499 42.7303 14.7199V10.6799C42.7303 9.27994 42.9303 8.02994 44.0503 8.02994C45.2303 8.02994 45.3903 9.34994 45.3903 10.6799V14.7199Z"></path>
               <path d="M52.2713 19.0899C53.7313 19.0899 54.6413 18.4799 55.3913 17.3799H55.5013L55.6113 18.8999H57.6012V6.53994H54.9613V16.4699C54.6812 16.9599 54.0312 17.3199 53.4212 17.3199C52.6512 17.3199 52.4113 16.7099 52.4113 15.6899V6.53994H49.7812V15.8099C49.7812 17.8199 50.3613 19.0899 52.2713 19.0899Z"></path>
@@ -44,37 +51,41 @@ const Header = () => {
           </svg>
         </button>
       </div>
+
       <div
         id="search-container"
         className="flex justify-around items-center w-[600px] h-[40px]"
       >
         <div
           id="search-box"
-          className="flex items-center w-[520px] h-[34px] border border-gray-400 rounded-full"
+          className={`flex items-center w-[520px] h-[34px] border border-gray-400 rounded-full overflow-hidden ${theme === 'light' ? 'bg-white' : 'bg-gray-900'}`}
         >
-          <div id="input-box" className="flex">
+          <div id="input-box" className="flex flex-1 items-center">
             <input
-              ref={inputRef}
               type="text"
               placeholder="검색"
-              className="w-[420px] h-full ml-[10px] outline-none"
+              className={`w-full h-full ml-[10px] outline-none ${theme === 'light' ? 'bg-white text-black' : 'bg-gray-900 text-white'}`}
             />
             <button
               id="keyboard-button"
-              className="mr-[4px] active:bg-gray-100"
-              onClick={handleKeyboardClick}
+              className={`p-1 mr-2 rounded-full ${theme === 'light' ? 'bg-white hover:bg-gray-200' : 'bg-gray-900 hover:bg-gray-800'}`}
             >
-              <img src="//www.gstatic.com/inputtools/images/tia.png" alt="" />
+              <img
+                src="//www.gstatic.com/inputtools/images/tia.png"
+                alt=""
+                className="w-5 h-5"
+              />
             </button>
           </div>
 
           <button
             id="search-button"
-            className="flex justify-center items-center w-full h-full rounded-r-full border border-l-gray-400 border-white pr-5 bg-gray-100"
+            className={`flex justify-center items-center h-full px-5 border-l border-gray-400 ${theme === 'light' ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-800 hover:bg-gray-700'}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-[24px] h-[24px] ml-[20px]"
+              className="w-[24px] h-[24px] fill-current"
+              viewBox="0 0 24 24"
             >
               <path d="M11 2a9 9 0 105.641 16.01.966.966 0 00.152.197l3.5 3.5a1 1 0 101.414-1.414l-3.5-3.5a1 1 0 00-.197-.153A8.96 8.96 0 0020 11a9 9 0 00-9-9Zm0 2a7 7 0 110 14 7 7 0 010-14Z"></path>
             </svg>
@@ -82,26 +93,34 @@ const Header = () => {
         </div>
         <button
           id="voice-search-button"
-          className="flex justify-center items-center w-[32px] h-[32px] pt-[2px] rounded-full bg-gray-100"
+          className={`p-2 mr-2 rounded-full ${theme === 'light' ? 'bg-white hover:bg-gray-200' : 'bg-gray-900 hover:bg-gray-800'}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className="w-[24px] h-[24px]"
+            className="w-[24px] h-[24px] fill-current"
           >
             <path d="M18.063 14.5a1 1 0 111.73 1A8.998 8.998 0 0113 19.942V22a1 1 0 11-2 0v-2.058A8.999 8.999 0 014.206 15.5l.866-.5.865-.5a7.002 7.002 0 0012.125 0ZM12 1a5 5 0 015 5v5a5 5 0 01-10 0V6a5 5 0 015-5ZM4.572 14.134a1 1 0 011.365.366l-1.731 1a1 1 0 01.366-1.366ZM12 3a3 3 0 00-3 3v5a3 3 0 106 0V6a3 3 0 00-3-3Z"></path>
           </svg>
         </button>
       </div>
-      <div id="end" className="flex justify-center items-center w-30 h-12">
+      <div id="end" className="flex justify-center items-center gap-2">
+        <button
+          id="theme-toggle-button"
+          onClick={toggleTheme}
+          className={`p-2 mr-2 rounded-full ${theme === 'light' ? 'bg-white hover:bg-gray-200 hover:"🌙"' : 'bg-gray-900 hover:bg-gray-800'}`}
+        >
+          {theme === 'light' ? '☀️' : '🌙'}
+        </button>
+
         <button
           id="settings-button"
-          className="rounded-full active:bg-gray-100"
+          className={`p-2 mr-2 rounded-full ${theme === 'light' ? 'bg-white hover:bg-gray-200' : 'bg-gray-900 hover:bg-gray-800'}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className="w-[20px] h-[20px]"
+            className="w-[20px] h-[20px] fill-current"
           >
             <path d="M12 4a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Z"></path>
           </svg>
@@ -109,16 +128,16 @@ const Header = () => {
 
         <button
           id="login-button"
-          className="flex justify-center items-center w-[70px] h-[30px] bg-gray-50 rounded-full border-1 border-gray-400 text-blue-500 active:bg-gray-200"
+          className={`flex justify-center items-center px-4 h-[36px] rounded-full border border-gray-400 text-blue-500 transition-colors ${theme === 'light' ? 'bg-white hover:bg-blue-50' : 'bg-gray-900 hover:bg-gray-800'}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className="w-[20px] h-[20px] fill-blue-500"
+            className="w-[20px] h-[20px] fill-current mr-2"
           >
             <path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1Zm0 2a9 9 0 016.447 15.276 7 7 0 00-12.895 0A9 9 0 0112 3Zm0 2a4 4 0 100 8 4 4 0 000-8Zm0 2a2 2 0 110 4 2 2 0 010-4Zm-.1 9.001L11.899 16a5 5 0 014.904 3.61A8.96 8.96 0 0112 21a8.96 8.96 0 01-4.804-1.391 5 5 0 014.704-3.608Z"></path>
           </svg>
-          <p className="text-xs">로그인</p>
+          <span className="text-sm font-medium">로그인</span>
         </button>
       </div>
     </header>
