@@ -1,9 +1,8 @@
-import React from 'react'
-import List from './List'         
-import Maindash from './Maindash'  
-import Dashboard from './Dashboard' 
-import Notification from './Notification' 
-import Logo from './Logo'          
+import List from '.components/List'         
+import Maindash from './components/Maindash'  
+import Dashboard from './components/Dashboard' 
+import Notification from './components/Notification' 
+import Logo from './components/Logo'          
 
 const App = () => {
   return (
