@@ -1,0 +1,100 @@
+.longform-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 20px;
+  gap: 18px;
+}
+
+.long-form-card {
+  width: 100%;
+  cursor: pointer;
+}
+
+.longform-thumbnail {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.longform-thumbnail:hover {
+  /* 카드를 살짝 커지게(1.05배) 만들고, 위로 살짝(-5px) 띄웁니다 */
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.longform-info {
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+  gap: 12px;
+}
+
+/* 프로필 이미지 동그랗게*/
+.longform-profile {
+  flex-shrink: 0;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.longform-details {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.longform-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.long-menu-inner-btn {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  background: transparent !important;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 2;
+}
+
+@media (min-width: 600px) {
+  .longform-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 화면이 900px 이상 */
+@media (min-width: 900px) {
+  .longform-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 화면이 1200px 이상 */
+@media (min-width: 1200px) {
+  .longform-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

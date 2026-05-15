@@ -1,0 +1,92 @@
+.shorts-section {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.shorts-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.shorts-form-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+}
+
+.shorts-thumbnail {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.shorts-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shorts-thumbnail:hover {
+  /* 카드를 살짝 커지게(1.05배) 만들고, 위로 살짝(-5px) 띄웁니다 */
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.shorts-menu-inner-btn {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  background: transparent !important;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.shorts-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  color: white;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8),
+    transparent
+  ); /* 글자 잘보이게 그라데이션 추가*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.shorts-title {
+  font-size: 12px;
+}
+
+.shorts-views {
+  font-size: 12px;
+}
+
+@media (min-width: 600px) {
+  .shorts-form-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 화면이 900px 이상 */
+@media (min-width: 900px) {
+  .shorts-form-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

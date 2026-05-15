@@ -1,0 +1,28 @@
+.category-container {
+  display: flex;
+  flex-shrink: 0;
+  gap: 15px;
+  padding: 10px 15px;
+  background-color: #0f0f0f;
+
+  overflow-x: auto; /* 가로 스크롤 생성 */
+  white-space: nowrap; /* 아이템들이 한 줄에 있도록 설정 */
+}
+
+.category-container::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨김 */
+}
+
+.category-item {
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 12px;
+  background-color: #272727;
+}
+
+.category-item:hover {
+  background-color: #3f3f3f;
+}
