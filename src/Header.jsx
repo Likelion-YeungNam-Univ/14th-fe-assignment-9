@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import LogoIcon from "./image/subscribe.png";
+import { useTheme } from "./ThemeContext";
 
 function Header() {
+  const { isLight, setIsLight, toggleTheme } = useTheme();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const selectLightMode = () => {
+    setIsLight(true);
+    setIsDropdownOpen(false);
+  };
+
+  const selectDarkMode = () => {
+    setIsLight(false);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <div className="header-container">
       <div className="header-start">
-        <button className="icon-btn menu-btn">☰</button>
+        <div className="menu-wrapper">
+          <button className="icon-btn menu-btn" onClick={toggleDropdown}>
+            ☰
+          </button>
+          {isDropdownOpen && (
+            <div className="theme-dropdown">
+              <div className="dropdown-item" onClick={selectLightMode}>
+                ☀️ 라이트모드 {isLight && "✓"}
+              </div>
+              <div className="dropdown-item" onClick={selectDarkMode}>
+                🌙 다크모드 {!isLight && "✓"}
+              </div>
+            </div>
+          )}
+        </div>
+
         <div className="logo">
           <img src={LogoIcon} alt="Logo" className="logo-icon" />
           <span className="logo-text">Premium</span>

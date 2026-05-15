@@ -5,10 +5,12 @@ import ShortForm from "./ShortForm";
 import Header from "./Header";
 import "./App.css";
 import Sidebar from "./Sidebar";
+import { useTheme } from "./ThemeContext";
 
 const App = () => {
+  const { isLight } = useTheme();
   return (
-    <div className="app-container">
+    <div className={`app-container ${isLight ? "light-mode" : ""}`}>
       <Header />
 
       <div className="body-container">
