@@ -1,4 +1,4 @@
-import List from '.components/List'         
+import List from './components/List'         
 import Maindash from './components/Maindash'  
 import Dashboard from './components/Dashboard' 
 import Notification from './components/Notification' 
