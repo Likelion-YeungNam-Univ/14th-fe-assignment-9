@@ -17,12 +17,12 @@ const Notification = () => {
           </h2>
         </div>
 
-        <p className="text-xs text-blue-500">
+        <p className="ml-2 text-xs text-blue-500">
           {text[lang].todayClass}
         </p>
 
-        <p className="text-[10px] text-gray-400">
-          5월 8일 19:00 |{" "}
+        <p className="ml-2 text-[10px] text-gray-400">
+          {text[lang].date} |{" "}
           <span className="underline cursor-pointer">
             {text[lang].detail}
           </span>
