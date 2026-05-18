@@ -70,3 +70,7 @@
 
 ### 메인보드
 `${form.textColor}` TailwindCSS에서 색을 동적으로 바꿀 때 사용하는 문법 (${})
+
+ㅡㅡㅡ
+
+## tailwindcss 버전 정보: v4이용
