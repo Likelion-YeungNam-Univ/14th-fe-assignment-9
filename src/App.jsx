@@ -1,27 +1,30 @@
-import List from './components/List'         
-import Maindash from './components/Maindash'  
-import Dashboard from './components/Dashboard' 
-import Notification from './components/Notification' 
-import Logo from './components/Logo'          
+import { LanguageProvider } from './context/LanguageContext'
+import List from './components/List'
+import Maindash from './components/Maindash'
+import Dashboard from './components/Dashboard'
+import Notification from './components/Notification'
+import Logo from './components/Logo'
 
 const App = () => {
   return (
-    <div className="flex">
-      <List />
+    <LanguageProvider>
+      <div className="flex">
+        <List />
 
-      <div className="flex-1 flex flex-col min-w-0">
-        <Maindash />
+        <div className="flex-1 flex flex-col min-w-0">
+          <Maindash />
 
-        <main className="p-8 overflow-y-auto">
-          <Dashboard />
-        </main>
-      </div>
-      <div className="w-80 flex flex-col gap-4 p-4">
+          <main className="p-8 overflow-y-auto">
+            <Dashboard />
+          </main>
+        </div>
+        <div className="w-80 flex flex-col gap-4 p-4">
           <Logo />
           <Notification />
         </div>
-    </div>
-        );
+      </div>
+    </LanguageProvider>
+  );
 }
 
-        export default App;
+export default App;
