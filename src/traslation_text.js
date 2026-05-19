@@ -1,3 +1,5 @@
+import Dashboard from "./components/Dashboard";
+
 export const text = {
   ko: {
     todo: "할 일",
@@ -11,7 +13,8 @@ export const text = {
     todayClassDesc: "알고리즘",
     peedback: "최근 피드백",
     quiz: "2차 퀴즈",
-    quizDesc: "프론트앤드 14기"
+    quizDesc: "프론트앤드 14기",
+    dashboard: "대시보드",
   },
 
   en: {
@@ -26,6 +29,7 @@ export const text = {
     todayClassDesc: "Algorithm",
     peedback: "Recent Feedback",
     quiz: "Quiz 2",
-    quizDesc: "Frontend 14th Generation"
+    quizDesc: "Frontend 14th Generation",
+    dashboard: "Dashboard",
   },
 };

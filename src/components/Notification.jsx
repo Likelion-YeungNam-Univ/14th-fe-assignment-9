@@ -16,22 +16,35 @@ const Notification = () => {
             {text[lang].todo}
           </h2>
         </div>
+        <div className="space-y-4">
+          <div className="relative group">
 
-        <p className="ml-2 text-xs text-blue-500">
-          {text[lang].todayClass}
-        </p>
+            <button className="absolute -right-0 top-0 text-gray-400 hover:bg-slate-200">✕</button>
+            <div className="flex items-start space-x-2">
+              <div className="-mt-2 text-gray-400">📢</div>
+              <div>
+                <p className="ml-2 text-xs text-blue-500">
+                  {text[lang].todayClass}
+                </p>
+                <p className="ml-2 text-[10px] text-gray-400">
+                  {text[lang].date} |{" "}
+                  <button className="underline cursor-pointer">
+                    {text[lang].detail}
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <p className="ml-2 text-[10px] text-gray-400">
-          {text[lang].date} |{" "}
-          <span className="underline cursor-pointer">
-            {text[lang].detail}
-          </span>
-        </p>
-<section>
-        <button className="w-full text-blue-500 text-xs pt-4 mb-20">
-          {text[lang].showAll}
-        </button>
-      </section>
+        </div>
+
+
+
+        <section>
+          <button className="w-full text-blue-500 text-xs pt-4 mb-20">
+            {text[lang].showAll}
+          </button>
+        </section>
 
         <h2 className="font-bold text-gray-800 border-b pb-1 mb-4">
           {text[lang].recentFeedback}
@@ -55,14 +68,14 @@ const Notification = () => {
           </div>
         </div>
 
-      <div className="mt-auto pt-4 border-t">
-  <div className="rounded-xl shadow-sm">
-    <LanguageSelector />
-  </div>
-</div>
-</section>
+        <div className="mt-auto pt-4 border-t">
+          <div className="rounded-xl shadow-sm">
+            <LanguageSelector />
+          </div>
+        </div>
+      </section>
     </aside>
-    
+
   );
 };
 

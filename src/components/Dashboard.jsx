@@ -5,8 +5,9 @@ import { FiBell } from "react-icons/fi";
 
 import dashboardimages1 from "../images/ganadi1.jpeg"
 import dashboardimages2 from "../images/ganadi2.jpeg"
-import notice from "../images/notice.png"
-import write from "../images/ganadi3.jpeg"
+
+import { useLanguage } from "../context/LanguageContext";
+import { text } from "../traslation_text.js";
 // 1. 소프트웨어공학 Software Engineering
 // 2. 캡스톤디자인 Capstone Design
 // 3. 자료구조 Data Structures
@@ -59,78 +60,139 @@ const dashboardList = [
   {
     id: 1,
     thumbnail: dashboardimages1,
-    title: "프론트앤드 14기 (2026-1)",
-    semester: "2026년 1학기",
+    title: {
+      ko: "프론트엔드 14기 (2026-1)",
+      en: "Frontend 14th (2026-1)",
+    },
+    semester: {
+      ko: "2026년 1학기",
+      en: "Spring 2026",
+    },
     category: "default",
     unread: true,
   },
   {
     id: 2,
-    title: "소프트웨어공학 (1022-22)",
-    semester: "2026년 2학기",
+    title: {
+      ko: "소프트웨어공학 (1022-22)",
+      en: "Software Engineering (1022-22)",
+    },
+    semester: {
+      ko: "2026년 2학기",
+      en: "Fall 2026",
+    },
     category: "Software_Engineering",
     unread: true,
   },
   {
     id: 3,
-    title: "캡스톤디자인 (1023-03)",
-    semester: "2027년",
+    title: {
+      ko: "캡스톤디자인 (1023-03)",
+      en: "Capstone Design (1023-03)",
+    },
+    semester: {
+      ko: "2027년",
+      en: "2027",
+    },
     category: "Capstone_Design",
     unread: false,
   },
   {
     id: 4,
-    title: "알고리즘 (1324-1)",
-    semester: "2026년 1학기",
+    title: {
+      ko: "알고리즘 (1324-1)",
+      en: "Algorithms (1324-1)",
+    },
+    semester: {
+      ko: "2026년 1학기",
+      en: "Spring 2026",
+    },
     category: "Algorithms",
     unread: true,
   },
   {
     id: 5,
-    title: "데이터베이스 (1425-1)",
-    semester: "2027년 1학기",
+    title: {
+      ko: "데이터베이스 (1425-1)",
+      en: "Database Systems (1425-1)",
+    },
+    semester: {
+      ko: "2027년 1학기",
+      en: "Spring 2027",
+    },
     category: "Database_Systems",
     unread: true,
   },
   {
     id: 6,
-    title: "운영체제 (1526-3)",
-    semester: "2026년 1학기",
+    title: {
+      ko: "운영체제 (1526-3)",
+      en: "Operating Systems (1526-3)",
+    },
+    semester: {
+      ko: "2026년 1학기",
+      en: "Spring 2026",
+    },
     category: "Operating_Systems",
     unread: false,
   },
   {
     id: 7,
     thumbnail: dashboardimages2,
-    title: "멋쟁이사자처럼 (2026-2)",
-    semester: "2026년 2학기",
+    title: {
+      ko: "멋쟁이사자처럼 (2026-2)",
+      en: "LIKELION (2026-2)",
+    },
+    semester: {
+      ko: "2026년 2학기",
+      en: "Fall 2026",
+    },
     category: "default",
     unread: true,
   },
   {
     id: 8,
-    title: "컴퓨터 네트워크 (1627-9)",
-    semester: "2026년 1학기",
+    title: {
+      ko: "컴퓨터 네트워크 (1627-9)",
+      en: "Computer Networks (1627-9)",
+    },
+    semester: {
+      ko: "2026년 1학기",
+      en: "Spring 2026",
+    },
     category: "Computer_Networks",
     unread: false,
   },
   {
     id: 9,
-    title: "웹 프로그래밍 (1728-0)",
-    semester: "2027년 1학기",
+    title: {
+      ko: "웹 프로그래밍 (1728-0)",
+      en: "Web Programming (1728-0)",
+    },
+    semester: {
+      ko: "2027년 1학기",
+      en: "Spring 2027",
+    },
     category: "Web_Programming",
     unread: true,
   },
   {
     id: 10,
-    title: "자료구조 (1829-2)",
-    semester: "2025년 2학기",
+    title: {
+      ko: "자료구조 (1829-2)",
+      en: "Data Structures (1829-2)",
+    },
+    semester: {
+      ko: "2025년 2학기",
+      en: "Fall 2025",
+    },
     category: "Data_Structures",
     unread: true,
   },
 ];
-
 const Dashboard = () => {
+  const { lang } = useLanguage();
+
   const styles = {
     container: "w-287.5",
     grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7",
@@ -183,12 +245,12 @@ const Dashboard = () => {
               <div className={styles.content}>
                 <div>
                   <div className={`${styles.title} ${style.textColor}`}>
-                    {item.title}
+                    {item.title[lang]}
                   </div>
 
-                  <div className={styles.subtitle}>{item.title}</div>
+                  <div className={styles.subtitle}>{item.title[lang]}</div>
 
-                  <div className={styles.semester}>{item.semester}</div>
+                  <div className={styles.semester}>{item.semester[lang] }</div>
                 </div>
 
                 {/* 아이콘 */}
