@@ -7,7 +7,6 @@ import dashboardimages1 from "../images/ganadi1.jpeg"
 import dashboardimages2 from "../images/ganadi2.jpeg"
 
 import { useLanguage } from "../context/LanguageContext";
-import { text } from "../traslation_text.js";
 // 1. 소프트웨어공학 Software Engineering
 // 2. 캡스톤디자인 Capstone Design
 // 3. 자료구조 Data Structures
@@ -51,7 +50,7 @@ const dashboardStyle = {
     textColor: "text-pink-700",
   },
   default: {
-    bgColor: "bg-black-300",
+    bgColor: "bg-black",
     textColor: "text-black-700",
   },
 };
@@ -194,9 +193,9 @@ const Dashboard = () => {
   const { lang } = useLanguage();
 
   const styles = {
-    container: "w-287.5",
+    container: "w-full",
     grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7",
-    card: "bg-white rounded-md shadow-md border border-gray-200 overflow-hidden flex flex-col transition hover:shadow-xl cursor-pointer",
+    card: "bg-white rounded-md shadow-md border border-gray-200 overflow-hidden flex flex-col transition-all hover:shadow-xl cursor-pointer",
     thumbnailWrapper: "relative h-32 overflow-hidden",
     thumbnail: "w-full h-full object-cover",
     emptyThumbnail: "w-full h-full",
@@ -222,13 +221,12 @@ const Dashboard = () => {
 
           return (
             <div key={item.id} className={styles.card}>
-              {/* 썸네일 */}
               <div className={styles.thumbnailWrapper}>
                 {item.thumbnail ? (
                   <img
                     className={styles.thumbnail}
                     src={item.thumbnail}
-                    alt={item.title}
+                    alt={item.title[lang]}
                   />
                 ) : (
                   <div
@@ -236,7 +234,7 @@ const Dashboard = () => {
                   />
                 )}
 
-                <button className={styles.moreButton}>
+                <button aria-label="더보기" className={styles.moreButton}>
                   <span className="text-2xl leading-none">⋮</span>
                 </button>
               </div>
@@ -253,7 +251,6 @@ const Dashboard = () => {
                   <div className={styles.semester}>{item.semester[lang] }</div>
                 </div>
 
-                {/* 아이콘 */}
                 <div className={styles.iconBar}>
                   <div className={styles.noticeWrapper}>
                     <FiBell className={styles.noticeIcon} />
@@ -263,7 +260,7 @@ const Dashboard = () => {
                     )}
                   </div>
 
-                  <button>
+                  <button aria-label="글쓰기">
                     <FiEdit className={styles.writeIcon} />
                   </button>
                 </div>

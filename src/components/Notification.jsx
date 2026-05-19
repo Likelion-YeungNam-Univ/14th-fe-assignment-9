@@ -7,7 +7,7 @@ const Notification = () => {
   const { lang } = useLanguage();
 
   return (
-    <aside className="w-70 p-6 bg-white flex flex-col h-full overflow-y-auto">
+    <aside className="w-full p-6 bg-white flex flex-col h-full overflow-y-auto">
 
       {/* 할 일 */}
       <section>
@@ -19,7 +19,9 @@ const Notification = () => {
         <div className="space-y-4">
           <div className="relative group">
 
-            <button className="absolute -right-0 top-0 text-gray-400 hover:bg-slate-200">✕</button>
+            <button className="absolute -right-0 top-0 text-gray-400 hover:bg-slate-200" aria-label="Close">
+              ✕
+            </button>
             <div className="flex items-start space-x-2">
               <div className="-mt-2 text-gray-400">📢</div>
               <div>
@@ -28,7 +30,7 @@ const Notification = () => {
                 </p>
                 <p className="ml-2 text-[10px] text-gray-400">
                   {text[lang].date} |{" "}
-                  <button className="underline cursor-pointer">
+                  <button className="underline cursor-pointer" aria-label="상세 정보">
                     {text[lang].detail}
                   </button>
                 </p>
@@ -41,7 +43,7 @@ const Notification = () => {
 
 
         <section>
-          <button className="w-full text-blue-500 text-xs pt-4 mb-20">
+          <button className="w-full text-blue-500 text-xs pt-4 mb-20" aria-label="모두 보기">
             {text[lang].showAll}
           </button>
         </section>

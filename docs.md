@@ -74,3 +74,24 @@
 ㅡㅡㅡ
 
 ## tailwindcss 버전 정보: v4이용
+
+# 새롭게  알게 된 점
+## aria-label 
+- 접근성(accessibility)용 설명, 의미 설명
+예시 
+```
+<button className={styles.moreButton}>
+                  <span className="text-2xl leading-none">⋮</span>
+                </button>
+```
+여기서 :가 무슨 버튼인지 모른다.
+
+-> `<button aria-label="More options">`이렇게 수정
+
+## truncate
+- Tailwind에서 “글자가 길면 … 처리” 해주는 클래스
+
+## context API
+### 1. Context 기본값 안전 처리
+기존 `const LanguageContext = createContext();`은 Provider 밖에서 useLanguage() 쓰면 undefined 가능성 있음.
+-> `const LanguageContext = createContext(null);` 수정
