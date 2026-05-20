@@ -71,7 +71,7 @@ const Notification = () => {
         </div>
 
         <div className="mt-auto pt-4 border-t">
-          <div className="rounded-xl shadow-sm">
+          <div>
             <LanguageSelector />
           </div>
         </div>
