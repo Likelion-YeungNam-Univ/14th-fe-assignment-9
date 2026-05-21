@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Ad_Long from './image/LikeLionAdLong.png';
 import Shop from './image/LikeLionShop.png';
 import Profile from './image/ProfileImg.png';
 import Setting from './image/Setting.png';
+import ThemeContext from './ThemeContext';
 
 
 const newsSelect_sty ="w-auto h-10 font-bold  flex flex-col text-gray-400"
@@ -15,14 +16,23 @@ const myView_Select_sty ="font-black text-sm flex flex-col mx-3"
 const myView_Sep_sty ="font-light text-sm flex flex-col justify-center text-gray-300 px-2.5"
 
 const Container = () => {
+  
+  const { isDark } = useContext(ThemeContext);
+
+  const bg_color_style = isDark ? 'bg-black' : 'bg-white'
+  const bg2_color_style = isDark ? 'bg-gray-700' : 'bg-gray-100'
+  const card_color_style = isDark ? 'bg-gray-900' : 'bg-white'
+  const border_color = isDark ? 'border-gray-700' : 'border-gray-200'
+
+  
   return (
-    <div id="container" className="w-full bg-white py-[20px] px-3">
+    <div id="container" className={`w-full py-[20px] px-3 ${bg_color_style}`}>
       <div className="mx-auto flex w-full max-w-[1200px] gap-8">
-        <div id="container_lt" className="w-[800px] h-[600px] bg-white flex flex-col gap-3">
-            <div id="Ad_container" className="overflow-hidden bg-white border-[1px] border-gray-200 rounded-xl">
+        <div id="container_lt" className={`w-[800px] h-[600px] flex flex-col gap-3 ${bg_color_style}`}>
+            <div id="Ad_container" className={`overflow-hidden border-[1px] rounded-xl ${border_color} ${card_color_style}`}>
               <img src={Ad_Long} className="h-auto w-full "></img>
             </div>
-            <div id="news_container" className="w-[800px] h-[550px] bg-white border-[1px] border-gray-200 rounded-xl">
+            <div id="news_container" className={`w-[800px] h-[550px] border-[1px] rounded-xl ${border_color} ${card_color_style}`}>
               <div id="selectButton" className="flex px-5 pt-4">
                 <div className={newsSelect_sty}>뉴스트랜드•언론사편집</div>
                 <div className={newsSep_sty}>/</div>
@@ -32,9 +42,9 @@ const Container = () => {
                 <div className={newsSep_sty}>/</div>
                 <div className={newsSelect_sty}>경제</div>
                 <div className={newsSep_sty}>/</div>
-                <div className="w-auto h-10 font-bold flex flex-col text-black">쇼핑투데이</div>
+                <div className={`w-auto h-10 font-bold flex flex-col ${isDark ? 'text-white' : 'text-black'}`}>쇼핑투데이</div>
               </div>
-              <div id="ContentHeader" className="flex justify-between bg-gray-100 mx-5 px-7 py-4 rounded-l-sm rounded-r-sm">
+              <div id="ContentHeader" className={`flex justify-between mx-5 px-7 py-4 rounded-l-sm rounded-r-sm ${bg2_color_style}`}>
                 <div className="flex">
                   <div className="text-sm">브랜드 데이</div>
                   <div className="text-gray-300 px-3 text-sm font-black">|</div>
@@ -137,8 +147,8 @@ const Container = () => {
 
             </div>
         </div>
-        <div id="container_rt" className="w-[320px] h-[700px] bg-white flex flex-col gap-3">
-          <div id="UserInfo" className="w-[320px] h-[170px] bg-white border-[1px] border-gray-200 rounded-xl">
+        <div id="container_rt" className={`w-[320px] h-[700px] flex flex-col gap-3 ${bg_color_style}`}>
+          <div id="UserInfo" className={`w-[320px] h-[170px] border-[1px] rounded-xl ${border_color} ${card_color_style}`}>
             <div id="my_View" className='mx-4 my-6'>
               <div className='flex items-center gap-1'>
                 <div id="profile" className='relative w-[65px] h-[65px] flex items-center'>
@@ -168,14 +178,14 @@ const Container = () => {
                   </div>
                 </div>
                 <div id="logout" className='flex items-start'>
-                  <button className='text-xs text-gray-400 rounded-2xl border border-gray-300 px-1 py-1 mb-10'>로그아웃</button>
+                  <button className={`text-xs text-gray-400 rounded-2xl border px-1 py-1 mb-10 ${border_color}`}>로그아웃</button>
               </div>
 
                 
 
                 </div>
               </div>
-              <div id="profileInfo" className='bg-gray-200 border-[1px] border-gray-200 rounded-b-xl'>
+              <div id="profileInfo" className={` border-[1px] rounded-b-xl ${bg2_color_style} ${border_color}`}>
                 <div className='mx-2 my-4'>
                   <div className="flex">
                     <div className={myView_Select_sty}>메일</div>
@@ -189,12 +199,12 @@ const Container = () => {
                 </div>
               </div>
           </div>
-          <div id="Ad_box1" className="w-[320px] h-[250px] bg-white border-[1px] border-gray-200 rounded-xl">
+          <div id="Ad_box1" className={`w-[320px] h-[250px] border-[1px] rounded-xl ${card_color_style} ${border_color}`}>
             <div className='mx-4 my-5 flex flex-col'>
               <div className='font-black text-sm'>2026 멋사대학 캠퍼스</div>
 
               <div id="Ad_box" className="flex items-center justify-between gap-4">
-                <div className='w-[80px] h-[60px] overflow_hidden bg-white border border-gray-200 rounded-2xl mt-2 px-5 py-4'>
+                <div className={`w-[80px] h-[60px] overflow_hidden border rounded-2xl mt-2 px-5 py-4 ${border_color} ${card_color_style}`}>
                   광고
                 </div>
 
@@ -211,7 +221,7 @@ const Container = () => {
               <div className='text-white font-black text-sm'>지금 구매하기</div>
             </div>
           </div>
-          <div id="Ad_box2" className="w-[320px] h-[250px] bg-white border-[1px] border-gray-200 rounded-xl"></div>
+          <div id="Ad_box2" className={`w-[320px] h-[250px] border rounded-xl ${border_color} ${card_color_style}`}></div>
         </div>
       </div>
     </div>

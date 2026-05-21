@@ -1,10 +1,6 @@
 import React, { useContext, useState } from 'react'
-import Goto from "./image/goto.png";
-import Pay from "./image/pay.png";
-import Alarm from "./image/alarm.png";
-import Shop from "./image/shopping.png";
+
 import Icon from "./image/subbutton.png";
-import SeeMore from "./image/seemore.png";
 import ThemeContext from './ThemeContext';
 
 import { FiMenu } from "react-icons/fi";
@@ -20,7 +16,6 @@ import { ImHome3 } from "react-icons/im";
 import { PiMapPinFill } from "react-icons/pi";
 import { SiWebtoon } from "react-icons/si";
 import { CgMoreAlt } from "react-icons/cg";
-import { text } from 'express';
 
 
 
@@ -33,7 +28,7 @@ const Header = () => {
 
   return (
 
-    <div id="header" className={isDark ? 'bg-gray-900' : 'bg-white'}>
+    <div id="header" className={isDark ? 'bg-black' : 'bg-white'}>
       <div id = "toparea" className="flex justify-between items-center px-10 pt-1">
         <div id="toplf" className="flex">
           <div className="w-15 h-15 flex justify-center items-center">
