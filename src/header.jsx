@@ -1,16 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Goto from "./image/goto.png";
 import Pay from "./image/pay.png";
 import Alarm from "./image/alarm.png";
 import Shop from "./image/shopping.png";
 import Icon from "./image/subbutton.png";
 import SeeMore from "./image/seemore.png";
+import ThemeContext from './ThemeContext';
 
 
 const Header = () => {
 
+    const { isDark, changeTheme } = useContext(ThemeContext)
+
   return (
-    <div id="header" className='bg-white'>
+
+    <div id="header" className={isDark ? 'bg-gray-700' : 'bg-white'}>
       <div id = "toparea" className="flex justify-between items-center px-10 pt-1">
         <div id="toplf" className="flex">
           <div className="w-15 h-15 flex justify-center items-center">
@@ -21,13 +25,17 @@ const Header = () => {
           </div>
         </div>
         
-        <div id="toprf" className="flex">
+        <div id="toprf" className="flex gap-2">
           <div className="w-15 h-15 flex justify-center items-center">
             <img src={Alarm} className="w-9 h-9"/>
           </div>
           <div className="w-15 h-15 flex justify-center items-center">
             <img src={Shop} className="w-9 h-9"/>
           </div>
+
+          <button onClick={changeTheme} className="border px-3 py-1 rounded-xl text-sm">
+            {isDark ? "Light" : "Dark"}
+          </button>
         </div>
         
       </div>
