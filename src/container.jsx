@@ -21,8 +21,11 @@ const Container = () => {
 
   const bg_color_style = isDark ? 'bg-black' : 'bg-white'
   const bg2_color_style = isDark ? 'bg-gray-700' : 'bg-gray-100'
-  const card_color_style = isDark ? 'bg-gray-900' : 'bg-white'
+  const card_color_style = isDark ? 'bg-gray-900 text-white' : 'bg-white text-black'
   const border_color = isDark ? 'border-gray-700' : 'border-gray-200'
+
+  const text_color = isDark ? 'text-white' : 'text-black'
+
 
   
   return (
@@ -129,7 +132,7 @@ const Container = () => {
                   </div>
                 </div>
               </div>
-              <div id="SepLine" className="w-[100%] border-[1px] border-gray-300"></div>
+              <div id="SepLine" className={`w-[100%] border-[1px] ${isDark ? 'border-gray-700' : 'border-gray-300'}`}></div>
               <div id="paging" className='h-[80px] flex items-center justify-center gap-3'>
                 <button className='w-9 h-9 font-black text-gray-500 border rounded-full flex items-center justify-center'>
                   &lt;
