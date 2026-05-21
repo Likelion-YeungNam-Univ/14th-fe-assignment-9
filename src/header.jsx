@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ThemeContext from './ThemeContext';
 import Goto from "./image/goto.png";
 import Pay from "./image/pay.png";
 import Alarm from "./image/alarm.png";
@@ -10,12 +9,8 @@ import SeeMore from "./image/seemore.png";
 
 const Header = () => {
 
-    const [isDark, setIsDark] = useState(false);
-
   return (
-    <ThemeContext.Provider value={{isDark, setIsDark}}>
-
-    <div id="header" className="bg-white">
+    <div id="header" className='bg-white'>
       <div id = "toparea" className="flex justify-between items-center px-10 pt-1">
         <div id="toplf" className="flex">
           <div className="w-15 h-15 flex justify-center items-center">
@@ -82,7 +77,6 @@ const Header = () => {
       </div>
     </div>
 
-    </ThemeContext.Provider>
   )
 }
 
