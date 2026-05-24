@@ -9,7 +9,7 @@ import Theme from "./context/Theme";
 const AppContainer = () => {
   const {isDark} = useContext(Theme);
   return (
-      <div className={`min-h-screen ${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} transition-colors duration-300`}>
+      <div className={`min-h-screen ${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} transition-colors`}>
         <Head />
         <div className="flex">
           <Bar />

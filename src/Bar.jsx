@@ -15,13 +15,13 @@ const Barlist = [
 const Bar = () => {
   const { isDark } = useContext(Theme);
   return (
-    <div className={`w-16 h-screen ${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} flex flex-col items-center pt-4 gap-1 fixed left-0 top-[112px]`}>
+    <div className={`w-16 h-screen ${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} flex flex-col items-center pt-4 gap-1 fixed left-0 top-[112px] transition-colors duration-300`}>
       {Barlist.map((menu) => (
         <div
           key={menu.id}
-          className="flex flex-col items-center gap-1 w-14 py-3 rounded-xl cursor-pointer ${isDark ? 'hover:bg-[#272727]' : 'hover:bg-gray-100'} transition-colors"
+          className={`flex flex-col items-center gap-1 w-14 py-3 rounded-xl cursor-pointer ${isDark ? 'hover:bg-[#272727]' : 'hover:bg-gray-100'} transition-colors`}
         >
-          <img src={menu.icon} alt={menu.label} className="w-5 h-5 ${isDark ? 'invert' : ''}" />
+          <img src={menu.icon} alt={menu.label} className={`w-5 h-5 ${isDark ? 'invert' : ''}`} />
           <span className={`text-[10px] font-bold ${isDark ? 'text-white' : 'text-black'}`}>{menu.label}</span>
         </div>
       ))}

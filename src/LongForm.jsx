@@ -75,7 +75,7 @@ const LongForm = () => {
         <div key={form.id} className={`${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} cursor-pointer group`}>
           <div className="relative">
             <img
-              className="w-full aspect-video object-cover rounded-xl group-hover:rounded-none transition-all duration-200"
+              className="w-full aspect-video object-cover rounded-xl group-hover:rounded-none transition-all"
               src={form.thumbnail}
               alt={form.title}
             />
