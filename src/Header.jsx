@@ -15,15 +15,20 @@ import mapbutton from "./assets/mapbutton.png";
 import webtoonbutton from "./assets/webtoonbutton.png";
 import livebutton from "./assets/livebutton.png";
 import morebutton from "./assets/morebutton.png";
+import ThemeContext from "./Theme";
+import { BiAdjust } from "react-icons/bi";
+
 const Header = () =>{
+    const [theme, setTheme] = React.useContext(ThemeContext);
     return (
-        <div className="p-2">
+        <div className={`p-2 ${theme === 'light' ? 'bg-white' : 'bg-gray-800 text-white'}`}>
             <div className="flex justify-between items-center mb-4">
                 <div className="flex items-center">    
                     <img src={button1} className="w-8 h-8 m-2"/>
                     <img src={button2} className="w-8 ml-2"/>
                 </div>
                 <div className="flex items-center">
+                    <button src={onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="bg-gray-300 text-gray-800 px-2 py-1 rounded"/>
                     <img src={button3} className="w-8 h-8 m-2"/>
                     <img src={button4} className="w-8 h-8 m-2"/>
                 </div>

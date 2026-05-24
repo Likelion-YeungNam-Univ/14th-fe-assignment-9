@@ -56,7 +56,7 @@ const Container = () => {
         <div id="right container" className="flex flex-col gap-y-4 ml-8">
             <div className="border-gray-300 flex flex-col border-2 h-[164px] w-[420px] rounded-md justify-center items-center gap-y-2">
                 <div className="text-[12px] text-gray-600">네이버를 더 안전하고 편리하게 이용하세요</div>
-                <button className="bg-[#03c75a] rounded-[4px] font-bold text-[15px] justify-center items-center w-full h-12 text-center text-white">NAVER 로그인</button>
+                <button className="bg-[#03c75a] rounded-[4px] font-bold text-[15px] justify-center items-center w-[380px] h-12 text-center mx-2 text-white">NAVER 로그인</button>
                 <div className="flex justify-center items-center gap-x-2 text-gray-500 text-[11px]">
                     <span>아이디 찾기</span>
                     <span className="mx-2 text-gray-200">|</span> 

@@ -70,6 +70,8 @@ function Footer() {
                     <span>네이버 D2</span><span>|</span>
                     <span>네이버 D2SF</span><span>|</span>
                     <span>네이버 랩스</span>
+
+
                 </div>
             </div>
 
@@ -101,7 +103,6 @@ function Footer() {
                     <span className="text-gray-200">|</span>
                     <span className="hover:underline cursor-pointer text-black">이용약관</span>
                     <span className="text-gray-200">|</span>
-                    {/* 개인정보처리방침은 네이버 디자인상 항상 굵게 표시됩니다 */}
                     <span className="hover:underline cursor-pointer text-black font-bold">개인정보처리방침</span>
                     <span className="text-gray-200">|</span>
                     <span className="hover:underline cursor-pointer text-black">청소년보호정책</span>
@@ -115,6 +116,7 @@ function Footer() {
                     <span className="font-bold text-[11px] text-black">ⓒ NAVER Corp.</span>
                 </div>
             </div>
+            <button className="bg-green-500 text-white px-4 py-2 rounded-md "
         </div>
     </div>
     );
