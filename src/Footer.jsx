@@ -116,7 +116,6 @@ function Footer() {
                     <span className="font-bold text-[11px] text-black">ⓒ NAVER Corp.</span>
                 </div>
             </div>
-            <button className="bg-green-500 text-white px-4 py-2 rounded-md "
         </div>
     </div>
     );
