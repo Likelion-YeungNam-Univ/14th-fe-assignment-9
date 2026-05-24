@@ -59,8 +59,11 @@ export const Navbar = () => {
         {/* 다크 라이트 */}
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="px-3 py-1 border-2 border-gray-300 rounded-full text-sm font-bold
-                   hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700"
+          className={`px-3 py-1 border-2 rounded-full text-sm font-bold transition-all ${
+            theme === "light"
+              ? "border-gray-300 text-gray-700 hover:bg-gray-100"
+              : "border-zinc-600 text-white hover:bg-zinc-800"
+          }`}
         >
           {theme === "light" ? "🌙 Dark" : "☀️ Light"}
         </button>
