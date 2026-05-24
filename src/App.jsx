@@ -4,6 +4,7 @@ import Post from './Post'
 import Head from './Head'
 import Message from './Message'
 import LoginContext from './LoginContext'
+import LoginPage from './LoginPage'
 
 
 const App = () => {
