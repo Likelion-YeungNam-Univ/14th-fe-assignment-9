@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import Theme from "./context/Theme";
 import icon from "./assets/image.png";
 import mic from "./assets/mic.png";
 import searchIcon from "./assets/readGlass.png";
@@ -19,9 +21,14 @@ const categoryList = [
   { id: 13, category: "최근에 업로드된 동영상" },
 ];
 
+
 const Head = () => {
+
+  const [isDark, setIsDark] = useState(false);
+  
   return (
-    <div className="sticky top-0 z-50 bg-[#0f0f0f]/90 backdrop-blur-md flex flex-col">
+    <Theme.Provider value={{ isDark, setIsDark }}>
+          <div className="sticky top-0 z-50 bg-[#0f0f0f]/90 backdrop-blur-md flex flex-col">
 
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-3 mt-2">
@@ -66,6 +73,8 @@ const Head = () => {
         ))}
       </div>
     </div>
+    </Theme.Provider>
+
   );
 };
 
