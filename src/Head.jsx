@@ -1,6 +1,9 @@
 import React from 'react'
+import LoginContext from './LoginContext'
 
 const Head = () => {
+    const { isLogin, setIsLogin } = React.useContext(LoginContext);
+
     return (
         <>
             <div className="p-4 w-30 h-20 flex justify-between items-center">
@@ -12,7 +15,9 @@ const Head = () => {
                 <div className= "text-3xl">Instagram</div>
                 
                 <div className="flex space-x-2 items-center">
-                    <button className="border bg-stone-300 hover:bg-stone-400 text-white rounded-xl w-20 h-10">Logout</button>
+                    <button 
+                        className="border bg-stone-300 hover:bg-stone-400 text-white rounded-xl w-20 h-10"
+                        onClick = {() => setIsLogin(false)}>Logout</button>
                     <svg  xmlns="http://www.w3.org/2000/svg" width={30} height={60} 
                     fill={"currentColor"} viewBox={"0 0 24 24"}>
                     <path d="M13.12 12.76 12 10.5l-1.12 2.26-2.38.21 1.85 1.85-.82 2.68L12 15.85l2.47 1.65-.82-2.68 1.85-1.85z"/><path d="m19.94 7.68-.03-.09a.8.8 0 0 0-.2-.29l-5-5a1 1 0 0 0-.3-.2l-.09-.03a.9.9 0 0 0-.27-.05c-.02 0-.04-.01-.05-.01H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-12s-.01-.04-.01-.06c0-.09-.02-.17-.05-.26ZM6 20V4h7v4c0 .55.45 1 1 1h4v11z"/>
