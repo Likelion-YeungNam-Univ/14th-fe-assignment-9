@@ -11,8 +11,16 @@ function App() {
   return (
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <Navbar />
-        <MainPage></MainPage>
+        <div
+          className={`min-h-screen transition-colors duration-300 ${
+            theme === "light"
+              ? "bg-white text-gray-900"
+              : "bg-zinc-900 text-gray-100"
+          }`}
+        >
+          <Navbar />
+          <MainPage></MainPage>
+        </div>
       </ThemeContext.Provider>
     </>
   );
