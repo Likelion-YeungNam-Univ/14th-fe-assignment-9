@@ -9,13 +9,14 @@ export const ThemeProvider = ({ children }) => {
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
   };
-
+s
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
+
 
 // 다른 컴포넌트에서 쉽게 쓰기 위해서
 export const useTheme = () => useContext(ThemeContext);
