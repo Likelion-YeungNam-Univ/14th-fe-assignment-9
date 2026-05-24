@@ -19,8 +19,36 @@ import LangageContext from "./Langage";
 import { BsFillKeyboardFill } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 
+const MENU_TEXT = {
+  '한국어': {
+    mail: '메일',
+    cafe: '카페',
+    blog: '블로그',
+    news: '뉴스',
+    stock: '증권',
+    realty: '부동산',
+    map: '지도',
+    webtoon: '웹툰',
+    live: '치지직',
+    placeholder: '검색어를 입력해 주세요'
+  },
+  '영어': {
+    mail: 'Mail',
+    cafe: 'Cafe',
+    blog: 'Blog',
+    news: 'News',
+    stock: 'Stock',
+    realty: 'Realty',
+    map: 'Map',
+    webtoon: 'Webtoon',
+    live: 'Chzzk',
+    placeholder: 'Please enter a search term'
+  }
+};
 const Header = () =>{
+    
     const [langage, setLangage] = React.useContext(LangageContext);
+    const text = MENU_TEXT[langage] || MENU_TEXT['한국어'];
     return (
         <div className='p-2 flex flex-col items-center w-full'>
             <div className="flex justify-between items-center mb-4 w-full">
@@ -41,7 +69,7 @@ const Header = () =>{
                 <input 
                     type="text"
                     className="w-full bg-transparent pr-4 text-base text-gray-900 placeholder-gray-400 focus:outline-none" 
-                    placeholder="검색어를 입력해 주세요" 
+                    placeholder={text.placeholder} 
                 />
 
                 <div className="flex items-center gap-3 shrink-0">
@@ -57,47 +85,47 @@ const Header = () =>{
             <div className="flex justify-center items-start gap-x-2">
                 <div id="mail" className="w-16 flex flex-col items-center">
                     <img src={mailbutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">메일</div>
+                    <div className="text-sm text-center">{text.mail}</div>
                 </div>
 
                 <div id="cafe" className="w-16 flex flex-col items-center">
                     <img src={cafebutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">카페</div>
+                    <div className="text-sm text-center">{text.cafe}</div>
                 </div>
 
                 <div id="blog" className="w-16 flex flex-col items-center">
                     <img src={blogbutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">블로그</div>
+                    <div className="text-sm text-center">{text.blog}</div>
                 </div>
 
                 <div id="news" className="w-16 flex flex-col items-center">
                     <img src={newsbutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">뉴스</div>
+                    <div className="text-sm text-center">{text.news}</div>
                 </div>
 
                 <div id="stock" className="w-16 flex flex-col items-center">
                     <img src={stockbutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">증권</div>
+                    <div className="text-sm text-center">{text.stock}</div>
                 </div>
 
                 <div id="realty" className="w-16 flex flex-col items-center">
                     <img src={realtybutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">부동산</div>
+                    <div className="text-sm text-center">{text.realty}</div>
                 </div>
 
                 <div id="map" className="w-16 flex flex-col items-center">
                     <img src={mapbutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">지도</div>
+                    <div className="text-sm text-center">{text.map}</div>
                 </div>
 
                 <div id="webtoon" className="w-16 flex flex-col items-center">
                     <img src={webtoonbutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">웹툰</div>
+                    <div className="text-sm text-center">{text.webtoon}</div>
                 </div>
 
                 <div id="live" className="w-16 flex flex-col items-center">
                     <img src={livebutton} className="w-10 h-10 mb-1"/>
-                    <div className="text-sm text-center">치지직</div>
+                    <div className="text-sm text-center">{text.live}</div>
                 </div>
 
                 <div id="more" className="w-16 flex flex-col items-center">
