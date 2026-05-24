@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import LangageContext from "./Langage"; // Context 경로 확인 필요
+import LangageContext from "./Langage"; 
 import adbutton from "./assets/adbutton.png";
 import news from "./assets/news.png";
 import ad1 from "./assets/ad1button.png";
 import brain from "./assets/brain.png";
 import ad2 from "./assets/ad2.png";
 
-// 💡 1. Container에서 사용할 다국어 사전을 정의합니다.
 const CONTAINER_TEXT = {
   '한국어': {
     tabs: ['뉴스스탠드', '언론사 편집', '엔터', '스포츠', '게임', '경제', '쇼핑투데이'],
