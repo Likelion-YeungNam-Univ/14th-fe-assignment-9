@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import ThemeContext from "./ThemeContext.jsx";
+
 // 1. 데이터의 오타(namme -> name) 수정
+
 const list = [
   { id: 1, name: "one" },
   { id: 2, name: "💬" },
@@ -19,6 +23,7 @@ const Icon = () => {
 };
 
 export const Navbar = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   return (
     <>
       <div className="items-center border-b border-gray-200 flex flex-row justify-between mt-2.5 mb-2.5 ml-20 mr-20">
@@ -51,6 +56,14 @@ export const Navbar = () => {
         <div className="flex flex-row items-center gap-4">
           <Icon />
         </div>
+        {/* 다크 라이트 */}
+        <button
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          className="px-3 py-1 border-2 border-gray-300 rounded-full text-sm font-bold
+                   hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700"
+        >
+          {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+        </button>
       </div>
     </>
   );
