@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Theme from "./context/Theme";
 import shorts from "./assets/shorts.png";
 import home from "./assets/home.png";

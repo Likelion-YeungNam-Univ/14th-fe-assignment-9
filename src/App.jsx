@@ -9,8 +9,7 @@ import Theme from "./context/Theme";
 const AppContainer = () => {
   const {isDark} = useContext(Theme);
   return (
-    <ThemeProvider>
-      <div className={`bg-[#0f0f0f] min-h-screen ${isDark ? 'dark' : ''}`}>
+      <div className={`min-h-screen ${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} transition-colors duration-300`}>
         <Head />
         <div className="flex">
           <Bar />
@@ -20,7 +19,6 @@ const AppContainer = () => {
         <ShortForm />
       </div>
     </div>
-    </ThemeProvider>
   );
 };
 

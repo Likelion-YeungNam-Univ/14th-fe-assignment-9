@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import Theme from "./context/Theme";
 import thumbnail from "./assets/4e4edfd1-1e58-46f6-ad4a-30b7883b4f61.webp";
 import more_vertical from "./assets/dots.png";
 
@@ -10,10 +12,12 @@ const shortFormList = [
 ];
 
 function ShortForm() {
+  const {isDark} = useContext(Theme);
+
   return (
-    <div className="px-4 py-4 border-t border-gray-800">
+    <div className={`${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} px-4 py-4 border-t border-gray-800`}>
       <div className="flex items-center gap-2 mb-4">
-        <span className="text-white font-bold text-lg">Shorts</span>
+        <span className={`font-bold text-lg ${isDark ? 'text-white' : 'text-black'}`}>Shorts</span>
       </div>
       <div className="flex gap-3 overflow-x-hidden">
         {shortFormList.map((sf) => (
@@ -29,10 +33,12 @@ function ShortForm() {
               </button>
             </div>
             <div className="mt-2 px-1">
-              <div className="text-white text-sm font-medium line-clamp-2 leading-snug">
+              <div className={`text-sm font-medium line-clamp-2 leading-snug ${isDark ? 'text-white' : 'text-black'}`}>
                 {sf.title}
               </div>
-              <div className="text-gray-400 text-xs mt-1">{sf.views}</div>
+              <div className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                {sf.views}
+              </div>
             </div>
           </div>
         ))}

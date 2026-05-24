@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import Theme from "./context/Theme";
 import thumbnail from "./assets/4e4edfd1-1e58-46f6-ad4a-30b7883b4f61.webp";
 import more_vertical from "./assets/dots.png";
 
@@ -65,10 +67,12 @@ const longFormList = [
 ];
 
 const LongForm = () => {
+  const { isDark } = useContext(Theme);
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 px-4 py-4">
       {longFormList.map((form) => (
-        <div key={form.id} className="bg-[#0f0f0f] cursor-pointer group">
+        <div key={form.id} className={`${isDark ? 'bg-[#0f0f0f]' : 'bg-[#ffffff]'} cursor-pointer group`}>
           <div className="relative">
             <img
               className="w-full aspect-video object-cover rounded-xl group-hover:rounded-none transition-all duration-200"
@@ -86,7 +90,7 @@ const LongForm = () => {
               alt={form.user}
             />
             <div className="flex-1 min-w-0">
-              <div className="text-white font-medium text-sm leading-snug line-clamp-2 pr-6">
+              <div className={`font-medium text-sm leading-snug line-clamp-2 pr-6 ${isDark ? 'text-white' : 'text-black'}`}>
                 {form.title}
               </div>
               <div className="text-gray-400 text-sm mt-1">{form.user}</div>
