@@ -10,7 +10,7 @@ const App = () => {
       <div className="flex">
         <Bar />
       </div>
-      <div className="ml-16">
+      <div className="ml-16">ㅁ
         <LongForm />
         <ShortForm />
       </div>
