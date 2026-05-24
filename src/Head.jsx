@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Theme from "./context/Theme";
 import icon from "./assets/image.png";
 import mic from "./assets/mic.png";
@@ -24,10 +24,9 @@ const categoryList = [
 
 const Head = () => {
 
-  const [isDark, setIsDark] = useState(false);
-  
+  const { isDark, setIsDark } = useContext(Theme);
+
   return (
-    <Theme.Provider value={{ isDark, setIsDark }}>
           <div className="sticky top-0 z-50 bg-[#0f0f0f]/90 backdrop-blur-md flex flex-col">
 
       <div className="flex items-center justify-between px-4 py-2">
@@ -57,6 +56,9 @@ const Head = () => {
         </div>
 
         <div className="flex items-center gap-2 mt-2">
+          <button onclick={() => setIsDark(!isDark)} className="text-white font-bold rounded-full bg-dark border-white text-sm px-2">
+            {isDark ? "light" : "dark"}
+          </button>
           <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-content cursor-pointer overflow-hidden">
             <span className="text-white text-sm font-bold w-full text-center">U</span>
           </div>
@@ -73,7 +75,6 @@ const Head = () => {
         ))}
       </div>
     </div>
-    </Theme.Provider>
 
   );
 };
