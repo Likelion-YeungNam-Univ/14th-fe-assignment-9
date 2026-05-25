@@ -5,6 +5,7 @@ import profile3 from './assets/pf.png'
 import profile4 from './assets/pf.png'
 import profile5 from './assets/pf.png'
 import profile6 from './assets/pf.png'
+import {useTheme} from './ThemeContext' //themecontext 추가
 
 const StoryList = [ 
     {id:1, story: "id1", png:profile1},
@@ -15,8 +16,10 @@ const StoryList = [
     {id:6, story: "id6", png:profile6},
 ];
 const Story = () => {
+  const {isDarkMode} = useTheme(); //추가
   return (
-    <div className="flex gap-10 pt-[10px] pl-[30px] p-4 overflow-x-auto bg-white">
+    //테마 배경 전환
+    <div className={`flex gap-10 pt-[10px] pl-[30px] p-4 overflow-x-auto transition-colors duration-300 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
       {StoryList.map(story => ( 
         <div 
           key={story.id}
@@ -28,7 +31,8 @@ const Story = () => {
             className="w-16 h-15" 
           />
 
-          <div className="text-[8px] font-semibold text-gray-500 pr-[8px] hover:text-black whitespace-nowrap">
+          {/* 다크모드 글자색 hover */}
+          <div className={`text-[8px] font-semibold pr-[8px] whitespace-nowrap ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-black'}`}>
             {story.story}
           </div>
         </div>
