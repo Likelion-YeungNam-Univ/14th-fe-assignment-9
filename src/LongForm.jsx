@@ -1,63 +1,91 @@
-//import React from 'react'
-import thumbnail from "./assets/thumbnail.png"
+import { useContext } from "react";
+import { LanguageContext } from "./context/LanguageContext";
 
-const longFormList = [
-  {id:1, thumbnail, runtime:"1:13:21", profile:thumbnail, title:"집중 잘 되는 음악", user:"포커스", views:"124만회", date:"1년 전"},
-  {id:2, thumbnail, runtime:"23:08", profile:thumbnail, title:"휴학생의 vlog", user:"담이네", views:"4만회", date:"4시간 전"},
-  {id:3, thumbnail, runtime:"5:11", profile:thumbnail, title:"헤어지기 7시간 전", user:"미뇽이", views:"35만회", date:"1개월 전"},
-];
+export default function LongForm() {
+  const { language } = useContext(LanguageContext);
 
-const LongForm = () => {
+  const longFormList = [
+    {
+      id: 1,
+      thumbnail: "https://via.placeholder.com/400x250",
+      profile: "https://via.placeholder.com/40",
+      title: { en: "Focus Music", ko: "집중 음악" },
+      user: "Focus Channel",
+      views: "124만",
+      date: { en: "1 year ago", ko: "1년 전" },
+      runtime: "1:13:21"
+    },
+    {
+      id: 2,
+      thumbnail: "https://via.placeholder.com/400x250",
+      profile: "https://via.placeholder.com/40",
+      title: { en: "Daily Vlog", ko: "일상 브이로그" },
+      user: "Dami",
+      views: "4만",
+      date: { en: "4 hours ago", ko: "4시간 전" },
+      runtime: "23:08"
+    },
+    {
+      id: 3,
+      thumbnail: "https://via.placeholder.com/400x250",
+      profile: "https://via.placeholder.com/40",
+      title: { en: "Travel Story", ko: "여행 이야기" },
+      user: "Minyeong",
+      views: "35만",
+      date: { en: "1 month ago", ko: "1개월 전" },
+      runtime: "5:11"
+    }
+  ];
+
   return (
     <div className="grid grid-cols-3 gap-6 p-4">
-      
-      {longFormList.map(form => (
-        
-        <div key={form.id} className="flex flex-col w-full">
-          
-          {/* 썸네일 */}
-          <div className="relative aspect-video">
-            <img 
-              src={form.thumbnail} 
-              alt=""
-              className="w-full h-full object-cover rounded-xl"
+
+      {longFormList.map((v) => (
+        <div key={v.id} className="flex flex-col">
+
+          {/* thumbnail */}
+          <div className="relative">
+            <img
+              src={v.thumbnail}
+              className="w-full rounded-xl"
             />
-            <div className="absolute bottom-2 right-2 bg-gray-800 text-white text-xs px-1 py-0.5 rounded">
-              {form.runtime}
-            </div>
+
+            <span className="absolute bottom-2 right-2 bg-black text-white text-xs px-1 rounded">
+              {v.runtime}
+            </span>
           </div>
 
-          {/* 정보 (무조건 아래로) */}
-          <div className="flex mt-3 space-x-3">
-            
-            {/* 프로필 */}
-            <img 
-              src={form.profile} 
-              alt=""
+          {/* info */}
+          <div className="flex gap-3 mt-2">
+
+            <img
+              src={v.profile}
               className="w-10 h-10 rounded-full"
             />
 
-            {/* 텍스트 */}
             <div className="text-sm">
-              <div className="font-semibold leading-tight">
-                {form.title}
-              </div>
-              <div className="text-gray-500">
-                {form.user}
-              </div>
-              <div className="text-gray-500">
-                조회수 {form.views} · {form.date}
-              </div>
+
+              <p className="font-semibold">
+                {language === "EN" ? v.title.en : v.title.ko}
+              </p>
+
+              <p className="text-gray-500">
+                {v.user}
+              </p>
+
+              <p className="text-gray-400 text-xs">
+                {language === "EN"
+                  ? `${v.views} views · ${v.date.en}`
+                  : `조회수 ${v.views} · ${v.date.ko}`}
+              </p>
+
             </div>
 
           </div>
 
         </div>
-
       ))}
 
     </div>
-  )
+  );
 }
-
-export default LongForm

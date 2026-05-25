@@ -1,50 +1,28 @@
-// ShortForm.jsx
-import thumbnail from "./assets/thumbnail.png";
+import { useContext } from "react";
+import { LanguageContext } from "./context/LanguageContext";
 
-const shortFormList = [
-  {id:1, thumbnail, title: "왜 지뻔뻔님 따라하세요?", views: "33만회"},
-  {id:2, thumbnail, title: "환승연애4 민와와", views: "13만회"},
-  {id:3, thumbnail, title: "홈트만 7개월하면..", views: "61만회"},
-  {id:4, thumbnail, title: "소식좌의 하루", views: "4.6만회"},
-  {id:5, thumbnail, title: "CU 신제품 소개!", views: "8.2만회"},
-  {id:6, thumbnail, title: "도전 먹방", views: "218만회"},
-  {id:7, thumbnail, title: "집에서 하는 운동", views: "12만회"},
-];
+export default function ShortForm() {
+  const { language } = useContext(LanguageContext);
 
-function ShortForm() {
+  const list = [
+    {
+      id: 1,
+      title: language === "EN" ? "Workout" : "운동"
+    },
+    {
+      id: 2,
+      title: language === "EN" ? "Mukbang" : "먹방"
+    }
+  ];
+
   return (
-    <div className="flex overflow-x-auto space-x-4 p-4">
-
-      {shortFormList.map(sf => (
-        <div
-          key={sf.id}
-          className="relative min-w-[180px] h-[320px] rounded-xl overflow-hidden cursor-pointer"
-        >
-
-         
-          <img
-            src={sf.thumbnail}
-            className="w-full h-full object-cover"
-          />
-
-        
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-
-        
-          <div className="absolute bottom-2 left-2 text-white">
-            <p className="text-sm font-semibold line-clamp-2">
-              {sf.title}
-            </p>
-            <p className="text-xs text-gray-300">
-              조회수 {sf.views}
-            </p>
-          </div>
-
+    <div className="flex gap-4 overflow-x-auto p-4">
+      {list.map((v) => (
+        <div key={v.id} className="min-w-45">
+          <div className="h-63 bg-gray-300 rounded-xl" />
+          <p>{v.title}</p>
         </div>
       ))}
-
     </div>
   );
 }
-
-export default ShortForm;

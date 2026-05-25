@@ -1,47 +1,50 @@
-import React, { useState } from "react";
+import { useState, useContext } from "react";
 import { FaYoutube, FaSearch, FaMicrophone } from "react-icons/fa";
+import { LanguageContext } from "./context/LanguageContext";
 
-const Navbar = () => {
+export default function Navbar() {
   const [query, setQuery] = useState("");
+  const { language, toggleLanguage } = useContext(LanguageContext);
 
   return (
-    <div className="flex items-center justify-between px-4 py-2 shadow">
+    <div className="flex justify-between items-center px-4 py-3 shadow">
 
-      <div className="flex items-center">
+      <div className="flex items-center gap-2">
         <FaYoutube className="text-red-500 text-2xl" />
-         <span className="font-bold">YouTube</span>
+        <span className="font-bold">
+          {language === "EN" ? "YouTube" : "유튜브"}
+        </span>
       </div>
 
-      {/* 검색창 */}
-      <div className="flex items-center w-1/2">
+      <div className="flex w-1/2">
         <input
-          type="text"
-          placeholder="검색"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full border px-3 py-2 rounded-l-full"
+          placeholder={language === "EN" ? "Search" : "검색"}
         />
-
-        <button className="px-4 py-2 border bg-gray-100 rounded-r-full">
+        <button className="px-4 border bg-gray-100 rounded-r-full">
           <FaSearch />
         </button>
-
         <button className="ml-2 p-2 bg-gray-200 rounded-full">
           <FaMicrophone />
         </button>
       </div>
 
-      {/* 오른쪽 */}
-      <div>
+      <div className="flex gap-2 items-center">
+        <button
+          onClick={toggleLanguage}
+          className="px-3 py-1 border rounded"
+        >
+          {language}
+        </button>
+
         <img
           src="https://via.placeholder.com/30"
-          alt=""
           className="rounded-full"
         />
       </div>
 
     </div>
   );
-};
-
-export default Navbar;
+}
