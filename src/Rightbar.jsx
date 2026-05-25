@@ -1,7 +1,10 @@
 import React from 'react';
 import pfIcon from './assets/pf.png'; 
+import { useTheme } from './ThemeContext'; // themecontext 추가
 
 const RightBar = () => {
+  const { isDarkMode, toggleTheme } = useTheme(); // context 가져오기
+
   const recommendations = [
     { id: 1, name: 'user1', info: 'id1님 외 30명이 팔로우함' },
     { id: 2, name: 'user2', info: 'id2님 외 30명이 팔로우함' },
@@ -11,9 +14,9 @@ const RightBar = () => {
   ];
 
   return (
-    <div className="hidden lg:block w-[320px] pt-10 pr-4 ml-10">
+    // 테마에 따라 글자 색상 변경
+    <div className={`hidden lg:block w-[320px] pt-10 pr-4 ml-10 ${isDarkMode ? 'text-white' : 'text-black'}`}>
       
- 
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-full overflow-hidden">
@@ -24,16 +27,20 @@ const RightBar = () => {
             <p className="text-sm text-gray-500">내 이름</p>
           </div>
         </div>
-        <button className="text-xs font-bold text-blue-500 hover:text-black">전환</button>
+        {/* 버튼 클릭 시 toggleTheme 실행, 상태에 따라 글자 변경 */}
+        <button 
+          onClick={toggleTheme} 
+          className="text-xs font-bold text-blue-500 hover:text-black dark:hover:text-white"
+        >
+          {isDarkMode ? '화이트 모드' : '다크 모드'}
+        </button>
       </div>
 
-   
       <div className="flex justify-between py-2 mb-2">
         <span className="text-sm font-bold text-gray-500">회원님을 위한 추천</span>
         <button className="text-xs font-bold hover:opacity-50">모두 보기</button>
       </div>
 
-    
       <div className="flex flex-col gap-3">
         {recommendations.map((user) => (
           <div key={user.id} className="flex items-center justify-between">
@@ -46,7 +53,7 @@ const RightBar = () => {
                 <span className="text-[11px] text-gray-400 truncate w-[160px]">{user.info}</span>
               </div>
             </div>
-            <button className="text-xs font-bold text-blue-500 hover:text-black">팔로우</button>
+            <button className="text-xs font-bold text-blue-500 hover:text-black dark:hover:text-white">팔로우</button>
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@ const Peed = () => {
   return (
     <div className="w-full flex flex-col items-center">
       
-      <div className="w-full max-w-[470px] mt-4 mb-12 border-b border-gray-200 pb-10 pl-{100px}">
+      <div className="w-full max-w-[470px] mt-4 mb-12 border-b border-gray-200 pb-10 pl-[100px]">
       
 
         <div className="flex items-center gap-3 mb-3 px-1">
